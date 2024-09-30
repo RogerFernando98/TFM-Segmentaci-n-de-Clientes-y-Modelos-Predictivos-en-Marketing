@@ -1,7 +1,3 @@
-Aquí tienes un borrador de un README para tu proyecto de TFM en tu Github. Lo he estructurado para que muestre tanto el proceso como tus conocimientos de ciencia de datos. Si deseas ajustar algo o agregar más detalles, no dudes en comentarlo.
-
----
-
 # Proyecto TFM - Segmentación de Clientes y Modelos Predictivos
 
 Este repositorio contiene el código y la documentación del Trabajo Final de Máster (TFM) realizado como parte del Máster en Ciencia de Datos e Inteligencia Artificial en Nucleus Digital School. El proyecto se centra en la segmentación de clientes y la creación de modelos predictivos para campañas de marketing, aprovechando técnicas avanzadas de ciencia de datos.
