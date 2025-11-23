@@ -1,61 +1,163 @@
-# Proyecto TFM - Segmentación de Clientes y Modelos Predictivos
+# TFM: Segmentación de Clientes y Modelos Predictivos para Marketing Personalizado
 
-Este repositorio contiene el código y la documentación del Trabajo Final de Máster (TFM) realizado como parte del Máster en Ciencia de Datos e Inteligencia Artificial en Nucleus Digital School. El proyecto se centra en la segmentación de clientes y la creación de modelos predictivos para campañas de marketing, aprovechando técnicas avanzadas de ciencia de datos.
+Este proyecto forma parte de mi Trabajo Final de Máster en Ciencia de Datos en [Nuclio Digital School](https://nuclio.school). El objetivo es maximizar la rentabilidad de la empresa ficticia EasyMoney a través de una estrategia data-driven que combina limpieza de datos, segmentación de clientes y modelos de clasificación predictiva, permitiendo diseñar una campaña de marketing personalizada para 10.000 clientes.
 
-## Objetivo del Proyecto
+---
 
-El objetivo principal es realizar una segmentación de 10 mil clientes en cuatro grupos o clusters, y posteriormente construir modelos predictivos para identificar aquellos clientes con mayor probabilidad de compra en tres grupos de productos: **Financing**, **Investment**, y **Accounts**. A partir de los resultados, se busca optimizar una campaña de marketing personalizada para maximizar las probabilidades de conversión en ventas.
+## 🔍 Objetivo del Proyecto
 
-## Estructura del Proyecto
+Diseñar e implementar un sistema de segmentación de clientes y clasificación predictiva que permita:
 
-El proyecto está dividido en varios notebooks, cada uno de ellos con una función específica dentro del flujo de trabajo:
+* Identificar patrones de comportamiento en los clientes.
+* Predecir qué grupo de productos financieros (Accounts, Financing o Investment) es más probable que adquieran.
+* Personalizar los envíos de email marketing para cada uno de los 4 segmentos finales.
 
-### 1. **Limpieza de Datos y Preprocesamiento**
-   En este notebook, se realiza una limpieza exhaustiva de los datos, eliminando duplicados, manejando valores nulos, y transformando variables categóricas en variables numéricas para su posterior análisis. Este proceso es fundamental para garantizar que los datos sean de alta calidad antes de la aplicación de cualquier técnica de modelado.
+---
 
-   **Conocimientos aplicados:**
-   - Manejo de librerías como `pandas` y `numpy` para la manipulación de datos.
-   - Técnicas de imputación y tratamiento de valores nulos.
-   - Transformaciones de variables categóricas y numéricas.
-   - Normalización y escalado de datos.
+## 📈 Problema que resuelve
 
-### 2. **Segmentación de Clientes con K-Means**
-   Se utiliza el algoritmo K-Means para segmentar a los clientes en cuatro clusters. El análisis de clusters permite identificar patrones en el comportamiento de los clientes, agrupándolos según características similares.
+EasyMoney tenía una gran base de clientes adquiridos, pero no sabía cómo aprovecharla para aumentar ingresos. Este proyecto responde a la necesidad de:
 
-   **Pasos importantes:**
-   - Aplicación de la técnica de Elbow y la métrica de silhouette para determinar el número óptimo de clusters.
-   - Interpretación de los clusters, utilizando medidas estadísticas (cálculo de medias) para entender qué características definen a cada grupo.
-   - Generación de visualizaciones que permiten interpretar visualmente los resultados de la segmentación.
+* Rentabilizar la base de clientes con estrategias de upselling y cross-selling.
+* Personalizar la comunicación a los distintos perfiles de cliente.
+* Maximizar el ROI de las campañas de marketing.
 
-   **Conocimientos aplicados:**
-   - Algoritmos de clustering no supervisados (K-Means).
-   - Cálculo e interpretación de métricas como Silhouette y Elbow.
-   - Técnicas de visualización para representar los clusters.
+---
 
-### 3. **Modelos Predictivos**
-   Se desarrollan tres notebooks independientes para construir modelos predictivos en tres grupos de productos: **Financing**, **Investment**, y **Accounts**. Para cada uno, se sigue el mismo flujo de trabajo, que incluye:
+## 📅 Contexto
 
-   - **Selección de características**: Se eliminan variables irrelevantes para cada grupo de productos.
-   - **División de los datos**: Se dividen los datos en conjuntos de entrenamiento y prueba.
-   - **Torneo de modelos**: Se prueban diferentes algoritmos (Regresión Logística, Random Forest, XGBoost, etc.) para seleccionar el mejor modelo basado en su precisión, F1-score y AUC-ROC.
-   - **Predicción y selección de clientes**: Se seleccionan los clientes con una probabilidad de compra superior al 70% (96% en el caso de **Accounts**) y se exportan en archivos CSV.
+EasyMoney es una plataforma financiera multicanal que ofrece productos de ahorro, inversión y financiación. Con el objetivo de mejorar su EBITDA, la dirección decide implementar un enfoque data-driven para optimizar la propuesta de valor y aumentar la fidelización de sus clientes mediante campañas personalizadas basadas en datos.
 
-   **Conocimientos aplicados:**
-   - Creación y evaluación de modelos supervisados (clasificación).
-   - Optimización de hiperparámetros utilizando técnicas como `GridSearchCV`.
-   - Validación cruzada y evaluación de modelos mediante métricas como F1-Score, Precisión y AUC-ROC.
-   - Librerías usadas: `scikit-learn`, `XGBoost`.
+---
 
-### 4. **Unión de Predicciones y Cálculo de Ingresos**
-   En este notebook final, se integran los resultados de los tres modelos predictivos. Se crea un dataframe unificado con las probabilidades de compra de cada cliente para los tres productos. Los valores nulos en las probabilidades se imputan con 0. A partir de estos datos, se calcula el ingreso aproximado por cliente en función del grupo de productos que probablemente compren, considerando tanto las probabilidades de compra como los ingresos generados por cada producto.
+## 📊 Datos Utilizados
 
-   **Conocimientos aplicados:**
-   - Manipulación avanzada de dataframes.
-   - Imputación de valores faltantes.
-   - Cálculo de ingresos utilizando funciones basadas en probabilidades y precios de productos.
+Se trabajó con tres datasets originales, cada uno con más de 6 millones de filas:
 
-## Resultados Obtenidos
+* `df_commercial_activity`: información sobre la actividad comercial de los clientes.
+* `df_products`: detalle de productos financieros contratados.
+* `df_sociodemographic`: variables demográficas y de segmentación.
 
-- **Segmentación exitosa de clientes en 4 clusters**: Se identificaron grupos de clientes con características similares, lo que permite una personalización de campañas de marketing.
-- **Modelos predictivos efectivos**: Se seleccionaron 10 mil clientes con alta probabilidad de compra para tres grupos de productos, con una precisión superior al 70% en cada uno de los modelos.
-- **Cálculo estimado de ingresos**: Se calculó el ingreso potencial por cliente basado en las probabilidades de compra y los productos más relevantes para cada segmento.
+### Preprocesamiento
+
+* Eliminación de duplicados (hasta 17 por cliente), conservando la fila más reciente.
+* Unificación por `PK_CID` y `PK_PARTITION`.
+* Manejo de nulos: imputación de `salary` por edad usando backfill/frontfill.
+* Agrupación de variables categóricas poco frecuentes.
+* Conversión de fechas a features numéricas (año, mes, día, día de semana).
+* OneHotEncoding y OrdinalEncoding para categorías.
+
+---
+
+## 🪡 Metodología
+
+### 1. Agrupación de productos
+
+* Se redujo la dimensionalidad agrupando los productos en tres categorías:
+
+  * **Accounts**: cuentas, tarjetas de débito, nómina.
+  * **Financing**: préstamos, hipotecas, tarjetas de crédito.
+  * **Investment**: fondos, planes de pensiones, valores.
+
+### 2. Segmentación inicial (7 clusters)
+
+* Se usó K-Means para descubrir patrones.
+* Se crearon variables como `product_engagement_score` y `debt_to_income_ratio`.
+* Se interpretaron los clusters a partir de medias de variables clave.
+
+### 3. Modelos de Clasificación (1 por grupo de producto)
+
+* Modelos usados: LogisticRegression, RandomForest, CatBoost, XGBoost, entre otros.
+* Selección del mejor modelo según `accuracy`, `roc_auc` y capacidad predictiva.
+* Se filtraron los clientes con probabilidad de compra > 70% (o >96% en Accounts).
+* Resultados:
+
+  * 933 clientes para Financing
+  * 4991 clientes para Investment
+  * 4076 clientes para Accounts
+
+### 4. Merge de predicciones
+
+* Se combinan las predicciones por cliente, rellenando nulos con 0.
+* Se estima el ingreso por cliente según:
+
+  * Probabilidad de compra
+  * Ingreso por producto
+  * Precisión del modelo
+
+### 5. Segmentación final (4 clusters)
+
+* Se agrupan los 10.000 clientes seleccionados usando K-Means.
+* Cada cluster representa un perfil específico.
+* Se definen mensajes y productos clave para cada grupo.
+
+---
+
+## 🎓 Tecnologías y Librerías
+
+* **Lenguaje**: Python
+* **Entorno**: Jupyter Notebook
+* **Librerías principales**:
+
+  * `pandas`, `numpy`: manipulación de datos
+  * `matplotlib`, `seaborn`: visualización
+  * `scikit-learn`, `xgboost`, `catboost`: modelado
+  * `tensorflow/keras`: pruebas con modelos de deep learning
+
+---
+
+## 📁 Estructura del repositorio
+
+```bash
+TFM_EasyMoney/
+│
+├── data/
+│   ├── raw/                      # Datos originales (no subidos por tamaño)
+│   └── processed/                # Datos procesados
+│
+├── notebooks/                   # Notebooks por etapa del proyecto
+│   ├── 1.-preprocesing.ipynb
+│   ├── 2.-encoding.ipynb
+│   ├── 3.-Segmentacion.ipynb
+│   ├── 4.-agrupacion.ipynb
+│   ├── 5.-balancear.ipynb
+│   ├── 6.-Modelo_investment.ipynb
+│   ├── 6.1.-Modelo_financing.ipynb
+│   ├── 6.2.-Modelo_account.ipynb
+│   ├── 7.-Unir_predicciones.ipynb
+│   └── 8.-Segmentacion_10K_Clientes.ipynb
+│
+├── documentos_complementarios/ # PDFs de interpretaciones, presentaciones y KPIs
+├── src/                         # (opcional) funciones comunes y helpers
+├── README.md                    # Este documento
+├── requirements.txt             # Dependencias del proyecto
+└── .gitignore                   # Archivos ignorados por Git
+```
+
+---
+
+## 🌍 Resultados
+
+* **Segmentación clara** de 10.000 clientes en 4 perfiles distintos.
+* **Modelos predictivos** con alta precisión para recomendar productos.
+* **Campañas de marketing personalizadas** según perfil, producto y comportamiento.
+* **Estimación de ingresos y ROI positivo** basado en la probabilidad de compra.
+
+---
+
+## ⚡ Posibles mejoras
+
+* Incluir métricas como F1-score y matriz de confusión para evaluar mejor los modelos.
+* Automatizar el pipeline en `src/` para producción.
+* Probar clustering con métodos jerárquicos o DBSCAN.
+* Desarrollar dashboard de visualización con Streamlit o Power BI.
+
+---
+
+## 📖 Autor
+
+**Fernando Arroyo Herrera**
+Data Scientist con background en Finanzas y especialización en segmentación, modelado predictivo y estrategias de marketing basadas en datos.
+
+* [LinkedIn](https://www.linkedin.com/in/f-arroyo-herrera/)
+* [GitHub](https://github.com/RogerFernando98)
