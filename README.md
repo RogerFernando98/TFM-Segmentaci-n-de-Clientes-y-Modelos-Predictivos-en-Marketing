@@ -2,9 +2,7 @@
 
 Este proyecto forma parte de mi Trabajo Final de Máster en Ciencia de Datos en [Nuclio Digital School](https://nuclio.school). El objetivo es maximizar la rentabilidad de la empresa ficticia EasyMoney a través de una estrategia data-driven que combina limpieza de datos, segmentación de clientes y modelos de clasificación predictiva, permitiendo diseñar una campaña de marketing personalizada para 10.000 clientes.
 
----
-
-## 🔍 Objetivo del Proyecto
+## Objetivo del Proyecto
 
 Diseñar e implementar un sistema de segmentación de clientes y clasificación predictiva que permita:
 
@@ -12,9 +10,7 @@ Diseñar e implementar un sistema de segmentación de clientes y clasificación 
 * Predecir qué grupo de productos financieros (Accounts, Financing o Investment) es más probable que adquieran.
 * Personalizar los envíos de email marketing para cada uno de los 4 segmentos finales.
 
----
-
-## 📈 Problema que resuelve
+## Problema que resuelve
 
 EasyMoney tenía una gran base de clientes adquiridos, pero no sabía cómo aprovecharla para aumentar ingresos. Este proyecto responde a la necesidad de:
 
@@ -22,15 +18,11 @@ EasyMoney tenía una gran base de clientes adquiridos, pero no sabía cómo apro
 * Personalizar la comunicación a los distintos perfiles de cliente.
 * Maximizar el ROI de las campañas de marketing.
 
----
-
-## 📅 Contexto
+## Contexto
 
 EasyMoney es una plataforma financiera multicanal que ofrece productos de ahorro, inversión y financiación. Con el objetivo de mejorar su EBITDA, la dirección decide implementar un enfoque data-driven para optimizar la propuesta de valor y aumentar la fidelización de sus clientes mediante campañas personalizadas basadas en datos.
 
----
-
-## 📊 Datos Utilizados
+## Datos Utilizados
 
 Se trabajó con tres datasets originales, cada uno con más de 6 millones de filas:
 
@@ -47,9 +39,7 @@ Se trabajó con tres datasets originales, cada uno con más de 6 millones de fil
 * Conversión de fechas a features numéricas (año, mes, día, día de semana).
 * OneHotEncoding y OrdinalEncoding para categorías.
 
----
-
-## 🪡 Metodología
+## Metodología
 
 ### 1. Agrupación de productos
 
@@ -91,9 +81,7 @@ Se trabajó con tres datasets originales, cada uno con más de 6 millones de fil
 * Cada cluster representa un perfil específico.
 * Se definen mensajes y productos clave para cada grupo.
 
----
-
-## 🎓 Tecnologías y Librerías
+## Tecnologías y Librerías
 
 * **Lenguaje**: Python
 * **Entorno**: Jupyter Notebook
@@ -104,9 +92,7 @@ Se trabajó con tres datasets originales, cada uno con más de 6 millones de fil
   * `scikit-learn`, `xgboost`, `catboost`: modelado
   * `tensorflow/keras`: pruebas con modelos de deep learning
 
----
-
-## 📁 Estructura del repositorio
+## Estructura del repositorio
 
 ```bash
 TFM_EasyMoney/
@@ -134,30 +120,23 @@ TFM_EasyMoney/
 └── .gitignore                   # Archivos ignorados por Git
 ```
 
----
-
-## 🌍 Resultados
+## Resultados
 
 * **Segmentación clara** de 10.000 clientes en 4 perfiles distintos.
 * **Modelos predictivos** con alta precisión para recomendar productos.
 * **Campañas de marketing personalizadas** según perfil, producto y comportamiento.
 * **Estimación de ingresos y ROI positivo** basado en la probabilidad de compra.
 
----
-
-## ⚡ Posibles mejoras
+## Posibles mejoras
 
 * Incluir métricas como F1-score y matriz de confusión para evaluar mejor los modelos.
 * Automatizar el pipeline en `src/` para producción.
 * Probar clustering con métodos jerárquicos o DBSCAN.
-* Desarrollar dashboard de visualización con Streamlit o Power BI.
 
----
+## Autor
 
-## 📖 Autor
-
-**Fernando Arroyo Herrera**
-Data Scientist con background en Finanzas y especialización en segmentación, modelado predictivo y estrategias de marketing basadas en datos.
+**Roger Fernando Arroyo Herrera**
 
 * [LinkedIn](https://www.linkedin.com/in/f-arroyo-herrera/)
+
 * [GitHub](https://github.com/RogerFernando98)
